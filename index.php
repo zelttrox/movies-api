@@ -1,6 +1,11 @@
 <?php
-$config = json_decode(file_get_contents('config'), true);
-$apiKey = $config['API_KEY'];
 
-echo $apiKey;
+$type = $_GET['type']??null;
+
+if (!$type) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Type manquant']);
+    exit;
+
+} 
 ?>
