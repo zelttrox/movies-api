@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies API - Catalogue de Films</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎬 Movies Catalog</h1>
+            <p>Découvrez les meilleurs films</p>
+        </div>
+    </header>
+
+    <nav class="filter-nav">
+        <div class="container">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Rechercher un film..."
+                    class="search-input"
+                >
+                <button id="search-btn" class="search-btn">🔍 Rechercher</button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-type="popular">Populaires</button>
+                <button class="filter-btn" data-type="top_rated">Mieux notés</button>
+                <button class="filter-btn" data-type="upcoming">À venir</button>
+                <button class="filter-btn" data-type="now_playing">En ce moment</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div id="loading" class="loading">Chargement...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="movies-grid" class="movies-grid"></div>
+    </main>
+
+    <!-- Modal pour les détails du film -->
+    <div id="movie-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <img id="modal-poster" src="" alt="" class="modal-poster">
+                <div class="modal-details">
+                    <h2 id="modal-title"></h2>
+                    <p class="modal-meta">
+                        <strong>Note:</strong> <span id="modal-rating">-</span> ⭐
+                    </p>
+                    <p class="modal-meta">
+                        <strong>Date de sortie:</strong> <span id="modal-date">-</span>
+                    </p>
+                    <p class="modal-meta">
+                        <strong>Statut:</strong> <span id="modal-status">-</span>
+                    </p>
+                    <div class="modal-synopsis">
+                        <strong>Synopsis:</strong>
+                        <p id="modal-overview"></p>
+                    </div>
+                    <p class="modal-meta" id="modal-genres"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
